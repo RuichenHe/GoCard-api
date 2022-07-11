@@ -33,3 +33,17 @@ func TestSort(t *testing.T) {
 		t.Error("Expect Ace of Spades to be the first one!recieved:", cards[0])
 	}
 }
+
+func TestJokers(t *testing.T) {
+	JokerNum := 5
+	cards := New(Jokers(JokerNum))
+	count := 0
+	for _, c := range cards {
+		if c.Suit == Joker {
+			count++
+		}
+	}
+	if count != JokerNum {
+		t.Errorf("Expected %v jokers,recieved:%v", JokerNum, count)
+	}
+}
