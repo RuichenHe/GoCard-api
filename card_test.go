@@ -47,3 +47,22 @@ func TestJokers(t *testing.T) {
 		t.Errorf("Expected %v jokers,recieved:%v", JokerNum, count)
 	}
 }
+
+func TestFilter(t *testing.T) {
+	filter := func(card Card) bool {
+		return card.Rank == Two || card.Rank == Three
+	}
+	cards := New(Filter(filter))
+	for _, c := range cards {
+		if c.Rank == Two || c.Rank == Three {
+			t.Error("All twos and threes should be removed!")
+		}
+	}
+}
+
+func TestDeck(t *testing.T) {
+	cards := New(Deck(3))
+	if len(cards) != 13*4*3 {
+		t.Errorf("Expected total cards number %v, recieved:%v", 13*4*3, len(cards))
+	}
+}
