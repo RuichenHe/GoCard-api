@@ -1,4 +1,4 @@
-module github.com/RuichenHe/GoBlackjack
+module github.com/RuichenHe/GoCard-module
 
 go 1.18
 
